@@ -23,7 +23,6 @@ public class RecipeRestController {
 
 	@GetMapping("/all")
 	public List<Recipe> getAllRecipes() {
-
 		return recipeService.getAllRecipes();
 	}
 

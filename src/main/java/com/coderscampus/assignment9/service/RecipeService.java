@@ -23,7 +23,9 @@ public class RecipeService {
 	}
 
 	public List<Recipe> getGlutenFreeRecipes() {
-		return getAllRecipes().stream().filter(Recipe::getGlutenFree).collect(Collectors.toList());
+		return getAllRecipes().stream()
+							  .filter(Recipe::getGlutenFree)
+							  .collect(Collectors.toList());
 	}
 
 	public List<Recipe> getVeganRecipes() {

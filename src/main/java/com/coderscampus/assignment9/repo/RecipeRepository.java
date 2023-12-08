@@ -12,13 +12,20 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.coderscampus.assignment9.domain.Recipe;
 
 @Service
 public class RecipeRepository {
+	List<Recipe> recipes = new ArrayList<>();
+
 	public List<Recipe> getAllRecipes() {
-		return readRecipeFile();
+		if (CollectionUtils.isEmpty(recipes)) {
+			recipes = readRecipeFile();
+		}
+
+		return recipes;
 	}
 
 	public List<String> readFile(String fileName) throws IOException {
